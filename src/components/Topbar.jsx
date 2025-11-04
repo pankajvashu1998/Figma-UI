@@ -10,33 +10,40 @@ import { FiPenTool } from "react-icons/fi";
 import { IoIosAdd } from "react-icons/io";
 import { FiMenu } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
+import { FaBars } from "react-icons/fa";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
-export default function TopBar() {
-  const [open, setOpen] = useState(true);
+export default function TopBar({ setSideBar, sideBar }) {
+  const [openSide, setSideOpen] = useState(false);
 
   return (
-    <div className="relative">
+    <div className="relative w-full ">
       {/* Floating Toggle Button */}
-      <button
-        onClick={() => setOpen(!open)}
-        className="fixed bottom-6  right-6 z-50 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-2xl hover:bg-blue-700 transition"
-      >
+      <button className="fixed bottom-6  right-6 z-50 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-2xl hover:bg-blue-700 transition">
         {open ? <IoClose /> : <FiMenu />}
       </button>
 
       {/* TopBar */}
       <div
-        className={`bg-white border-b border-gray-200 px-4 py-3 z-40 transition-all duration-300 ${
+        className={`bg-white sticky top-0 z-50 border-b border-gray-200 px-4 py-3  w-full transition-all duration-300 ${
           open ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
         }`}
       >
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 max-w-7xl mx-auto">
+        <div className="flex  sm:flex-row  sm:items-center justify-between gap-3 max-w-7xl mx-auto">
           {/* Title */}
-          <h1 className="text-sm sm:text-base font-medium">Recents</h1>
+          <div className="flex justify-center items-center  gap-3">
+            <span
+              onClick={() => setSideBar(!sideBar)}
+              className="md:hidden cursor-pointer"
+            >
+              <FaBars />
+            </span>
+            <h1 className="text-sm sm:text-base font-medium">Recents</h1>
+          </div>
 
           {/* Right Side */}
           <div className="hidden flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 w-full sm:w-auto  lg:block">
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <ul className="flex flex-wrap justify-start text-[12px] items-center gap-2">
                 {/* Design */}
                 <li className="px-4 py-2 rounded-2xl bg-gray-200 flex items-center gap-1 cursor-pointer group transition">
@@ -98,6 +105,15 @@ export default function TopBar() {
                 <IoDownloadOutline />
               </span>
             </div>
+          </div>
+          <div className="text-sm lg:hidden cursor-pointer flex justify-center items-center gap-2 bg-blue-500 px-5 py-2 text-white rounded-sm">
+            <span className="text-xl">
+              <IoIosAdd />
+            </span>
+            Create
+            <span className="text-xl">
+              <MdKeyboardArrowDown />
+            </span>
           </div>
         </div>
       </div>

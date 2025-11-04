@@ -5,7 +5,12 @@ import { PiBookOpenUser } from "react-icons/pi";
 import { FaRegBell } from "react-icons/fa";
 import { IoDocumentOutline } from "react-icons/io5";
 import { RxDashboard } from "react-icons/rx";
-import { MdOutlineSpaceDashboard, MdKeyboardArrowDown, MdOutlineDone, MdOutlineFileDownload } from "react-icons/md";
+import {
+  MdOutlineSpaceDashboard,
+  MdKeyboardArrowDown,
+  MdOutlineDone,
+  MdOutlineFileDownload,
+} from "react-icons/md";
 import { IoIosAdd } from "react-icons/io";
 import { BsTrash, BsBoxArrowInRight } from "react-icons/bs";
 import { GrUploadOption } from "react-icons/gr";
@@ -14,18 +19,16 @@ import { RiArrowDropRightLine } from "react-icons/ri";
 import { MdFolderOpen } from "react-icons/md";
 import { useState } from "react";
 
-export default function Sidebar() {
+export default function Sidebar({ sideBar }) {
   const [profile, setProfile] = useState(false);
 
   return (
-    <div className="h-full p-2 flex flex-col bg-white w-[280px]  border-r border-gray-200 ">
-
+    <div
+      className={`h-full fixed top-0 -left-full md:left-0 p-2 flex-col bg-white  w-[280px]  border-r border-gray-200 `}
+    >
       {/* Profile Section */}
       <div className="flex items-center justify-between gap-3 mb-6 relative">
-        <div
-          className="flex w-full justify-between items-center gap-2"
-          onClick={() => setProfile(!profile)}
-        >
+        <div className="flex w-full justify-between items-center gap-2">
           <div className="flex gap-2 justify-center items-center cursor-pointer">
             <div className="w-7 h-7 bg-linear-to-br from-blue-500 to-purple-600 mx-1 rounded-full flex items-center justify-center text-sm text-white overflow-hidden">
               <img
@@ -37,7 +40,10 @@ export default function Sidebar() {
             <p className="font-semibold text-sm truncate max-w-[120px] sm:max-w-none">
               Pankaj Kumar
             </p>
-            <span className="text-gray-500 transition-transform duration-300">
+            <span
+              onClick={() => setProfile(!profile)}
+              className="text-gray-500 transition-transform duration-300"
+            >
               <MdKeyboardArrowDown className="text-lg" />
             </span>
           </div>
@@ -201,7 +207,8 @@ export default function Sidebar() {
             <RxDashboard className="text-lg text-gray-700" /> All projects
           </button>
           <button className="w-full flex items-center gap-3 px-3 py-2 hover:bg-gray-50 rounded-lg">
-            <MdOutlineSpaceDashboard className="text-lg text-gray-700" /> Resources
+            <MdOutlineSpaceDashboard className="text-lg text-gray-700" />{" "}
+            Resources
           </button>
           <button className="w-full flex items-center gap-3 px-3 py-2 hover:bg-gray-50 rounded-lg">
             <BsTrash className="text-lg text-gray-700" /> Trash
