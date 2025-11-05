@@ -266,7 +266,7 @@ export default function Sidebar({ sideBar, setSideBar }) {
       {/* Mobile Sidebar */}
 
       <div
-        className={`h-full fixed top-15 md:top-0 ${
+        className={`h-full z-50 fixed top-15 md:top-0 ${
           sideBar ? "left-0" : "-left-full"
         } duration-300  p-2 flex-col bg-white  w-[280px]  border-r border-gray-200 `}
       >
