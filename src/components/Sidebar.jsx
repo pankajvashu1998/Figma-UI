@@ -410,7 +410,7 @@ export default function Sidebar({ sideBar, setSideBar }) {
         </div>
 
         {/* Team Section */}
-        <div   className="">
+        <div onClick={()=> setSideBar(!sideBar)}  className="">
           <details className="relative max-w-md mx-auto p-3 transition-all duration-300">
             <summary className="cursor-pointer text-gray-800 text-[12px] flex justify-start items-center">
               <span className="h-4 w-4 rounded-full bg-pink-500 flex justify-center items-center text-white text-[8px]">
