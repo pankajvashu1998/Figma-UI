@@ -376,7 +376,7 @@ export default function Sidebar({ sideBar, setSideBar }) {
         </div>
 
         {/* Search */}
-        <div className="mb-2">
+        <div  className="mb-2">
           <div className="relative">
             <input
               type="text"
@@ -400,7 +400,7 @@ export default function Sidebar({ sideBar, setSideBar }) {
         </div>
 
         {/* Navigation */}
-        <div className="space-y-1 mb-2 border-b-2 border-gray-300 ">
+        <div onClick={() => setSideBar(!sideBar)} className="space-y-1 mb-2 border-b-2 border-gray-300 ">
           <Link
             href={"/"}
             className="w-full flex items-center gap-3 px-3 py-2.5 bg-gray-100 rounded-lg text-[12px] font-medium"
